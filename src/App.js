@@ -1,7 +1,22 @@
 import React from "react";
+import { IntroPage, MainPage } from "./Pages";
+import GlobalStyle from "./Styles/GlobalStyle";
+import Theme from "./Styles/Theme";
+import { ThemeProvider } from "styled-components";
+import { Route, Switch } from "react-router-dom";
 
-function App() {
-  return <div>stepping-stones</div>;
-}
+const App = () => {
+  return (
+    <ThemeProvider theme={Theme}>
+      <>
+        <GlobalStyle />
+        <Switch>
+          <Route exact path="/" component={IntroPage} />
+          <Route path="/view" component={MainPage} />
+        </Switch>
+      </>
+    </ThemeProvider>
+  );
+};
 
 export default App;
