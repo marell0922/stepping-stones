@@ -2,13 +2,21 @@ import React from "react";
 import InputText from "./InputText";
 import RectButton from "./RectButton";
 import styled from "styled-components";
-
+import Image from "../Image/cat_background.png";
 const Root = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+  padding: 5rem;
   height: 100vh;
+  background: url(${Image}) no-repeat;
+  background-size: contain;
+`;
+
+const Title = styled.label`
+  font-size: 5rem;
+  margin: 1rem;
 `;
 
 class intro extends React.Component {
@@ -29,10 +37,15 @@ class intro extends React.Component {
 
   isNumberArrayRegExp = inputValue => {
     //////////// 정규식 찾아서 할것!  i\w+?n
-    return new RegExp(/^[0-9,]*$/).test(inputValue);
+    return new RegExp(/^[(0-9,]*$/).test(inputValue);
   };
 
   checkInputValue = (length, weight, weights) => {
+    if (!length || !weight || !weights) {
+      alert("enter the value");
+      return false;
+    }
+
     if (!this.isNumberRegExp(length)) {
       alert("Enter only Number");
       this.setState({ length: "" });
@@ -78,6 +91,7 @@ class intro extends React.Component {
     const { length, weight, weights } = this.state;
     return (
       <Root>
+        <Title>Stepping Stone</Title>
         <div>
           <InputText
             title="length"

@@ -5,6 +5,7 @@ const Root = styled.input`
   display: flex;
   flex-direction: row;
   margin: 1rem;
+  margin-right: 6rem;
   padding: 0.3rem;
   font-size: 16pt;
   width: 20rem;
