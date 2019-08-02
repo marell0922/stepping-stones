@@ -1,33 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
-const Root = styled.div`
+const Root = styled.input`
   display: flex;
   flex-direction: row;
-  margin: 1%;
-`;
-
-const DisplayTitle = styled.label`
-  margin-right: 1rem;
-  font-size: 20pt;
-`;
-
-const DisplayContent = styled.input`
-  font-size: 20pt;
+  margin: 1rem;
+  padding: 0.3rem;
+  font-size: 16pt;
+  width: 20rem;
   text-align: right;
 `;
 
 const InputText = props => {
   return (
-    <Root>
-      <DisplayTitle>{props.title} </DisplayTitle>
-      <DisplayContent
-        type="text"
-        name={props.title}
-        value={props.data}
-        onChange={props.onChange}
-      />
-    </Root>
+    <Root
+      type="text"
+      name={props.title}
+      value={props.data}
+      onChange={props.onChange}
+      placeholder={props.title}
+    />
   );
 };
 

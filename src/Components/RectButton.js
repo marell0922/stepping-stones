@@ -7,7 +7,7 @@ const Root = styled.button`
   font-size: 20pt;
   heigt: 25px;
   margin: 1%;
-  width: 25%;
+  width: 20rem;
   cursor: pointer;
 `;
 const RectButton = ({ title, onClick }) => (
