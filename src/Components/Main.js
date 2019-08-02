@@ -4,18 +4,12 @@ import DisplayText from "./DisplayText";
 import DisplayRectList from "./DisplayRectList";
 import DisplayImgList from "./DisplayImgList";
 import styled from "styled-components";
-const Root = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  color: black;
-  height: 100vh;
-`;
 
-const Body = styled.div`
+const Root = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 100vh;
 `;
 
 const Content = styled.div`
@@ -24,13 +18,25 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 100vh;
 `;
 
 const SubContent = styled.div`
   display: flex;
   flex-direction: row;
   margin: 1rem;
+`;
+
+const Navi = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-self: baseline;
+  margin: 2rem;
+  margin-right: 0;
+`;
+
+const Data = styled.label`
+  font-size: 1.5rem;
 `;
 
 class main extends React.Component {
@@ -72,7 +78,7 @@ class main extends React.Component {
           data.position += 1;
           if (data.position === length) {
             this.currentWeight -= data.weight;
-            console.log("curren", this.currentWeight);
+            console.log("current", this.currentWeight);
           }
           if (data.position === 0) {
             this.currentWeight += data.weight;
@@ -130,21 +136,22 @@ class main extends React.Component {
     const { timer } = this.state;
     return (
       <Root>
-        <DisplayText title="Limit Weight" value={weight + "kg"} />
-        <DisplayText title="length" value={length} />
-        <DisplayText title="Weight" value={weights} />
-        <Body>
-          <Content>
-            <div>[ StartPoint ]</div>
-            {this.startPointCount !== 0}
-            <DisplayImgList count={this.startPointCount} />
-            {/* return new Array(this.startPointCount).fill(<DisplayImg />);*/}
-          </Content>
-          <Content>
-            <DisplayText title="Timer" value={timer + "s"} />
-            <SubContent>
-              <DisplayRectList length={length} data={this.current} />
-              {/* let array = new Array(length).fill(<DisplayRect />);
+        <Navi>
+          <Data>{"length : " + length}</Data>
+          <Data>{"weight : " + weight} </Data>
+          <Data>{"weights : " + weights} </Data>
+        </Navi>
+        <Content>
+          <div>[ StartPoint ]</div>
+          {this.startPointCount !== 0}
+          <DisplayImgList count={this.startPointCount} />
+          {/* return new Array(this.startPointCount).fill(<DisplayImg />);*/}
+        </Content>
+        <Content>
+          <DisplayText title="Timer" value={timer + "s"} />
+          <SubContent>
+            <DisplayRectList length={length} data={this.current} />
+            {/* let array = new Array(length).fill(<DisplayRect />);
                 if (data) {
                     data.map((data, index) => {
                     array[data.position] = (
@@ -155,16 +162,15 @@ class main extends React.Component {
                   });
                 }
               */}
-            </SubContent>
-            <DisplayText title="Weight" value={this.currentWeight + "kg"} />
-          </Content>
-          <Content>
-            <div>[ EndPoint ]</div>
-            {this.endPointCount !== 0}
-            <DisplayImgList count={this.endPointCount} />
-            {/* return new Array(this.endPointCount).fill(<DisplayImg />);*/}
-          </Content>
-        </Body>
+          </SubContent>
+          <DisplayText title="Weight" value={this.currentWeight + "kg"} />
+        </Content>
+        <Content>
+          <div>[ EndPoint ]</div>
+          {this.endPointCount !== 0}
+          <DisplayImgList count={this.endPointCount} />
+          {/* return new Array(this.endPointCount).fill(<DisplayImg />);*/}
+        </Content>
       </Root>
     );
   }

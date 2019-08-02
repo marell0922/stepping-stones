@@ -13,7 +13,7 @@ class MainContainer extends React.Component {
         return Number(data);
       });
 
-    console.log("weight", this.weightArray);
+    console.log("weight", typeof this.weightArray);
 
     if (!length || !weight || this.weightArray.length === 0) {
       this.props.history.push("/");

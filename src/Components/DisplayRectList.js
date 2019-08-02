@@ -1,6 +1,7 @@
 import React from "react";
 import DisplayRect from "./DisplayRect";
 import DisplayImg from "./DisplayImg";
+import Image from "../Image/cat_walk.png";
 
 const displayRectList = ({ length, data }) => {
   console.log(data);
@@ -11,7 +12,7 @@ const displayRectList = ({ length, data }) => {
     data.map((data, index) => {
       array[data.position] = (
         <DisplayRect>
-          <DisplayImg />
+          <DisplayImg background={Image} />
         </DisplayRect>
       );
     });

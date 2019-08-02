@@ -10,10 +10,10 @@ const App = () => {
     <ThemeProvider theme={Theme}>
       <>
         <GlobalStyle />
-        <Switch>
+        <>
           <Route exact path="/" component={IntroPage} />
           <Route path="/view" component={MainPage} />
-        </Switch>
+        </>
       </>
     </ThemeProvider>
   );
